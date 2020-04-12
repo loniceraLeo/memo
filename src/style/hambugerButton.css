@@ -1,0 +1,84 @@
+/* 
+    usage: @inline-html: <button id="hambuger" @mouseenter="[event]" @mouseleave="[event]"><span></span></button>
+           @javascript: el.classList.add / el.classList.remove
+*/
+
+/* The Style of the main element */
+.hambuger {
+    position: fixed;
+    outline: none;
+    border: none;
+    background: rgba(255, 255, 255, 0.4);
+    left: 20px;
+    top: 20px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    z-index: 100000000;
+  
+    transition: all 0.6s;
+}
+
+/* The border-shadow animation of the main element */
+.hambuger:hover {
+    cursor: pointer;
+    box-shadow: 0px 0px 20px 2px rgba(160, 190, 255, 0.8) inset, 0px 0px 10px 4px rgba(160, 190, 255, 0.8); /*内外层渐变*/
+}
+
+/* The span element of the button */
+.hambuger span {
+    position: absolute;
+    display: block;
+    width: 36px;
+    height: 3px;
+    left: 13px;
+    top:28px;
+    background: rgba(255, 255, 255, 0.66);
+
+    transition: all 0.33s;
+}
+
+/**/
+.hambuger span::before,
+.hambuger span::after
+ {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.66);
+  transition: all 0.33s;
+}
+/* The move animation */
+.hambuger.is-active:hover {
+    transform: translateY(10px);
+}
+/* The initial state of the element */
+.hambuger span::before{
+    top: 0px;
+}
+.hambuger span::after{
+    top: 0px;
+}
+/* The hover style..*/
+.hambuger.is-active span::before{
+    transform: translateY(-10px);
+}
+.hambuger.is-active span::after{
+    transform: translateY(10px);
+}
+.hambuger.is-click span::before{
+    opacity: 0;
+}
+.hambuger.is-click span::after{
+    transform: rotate(90deg);
+}
+.hambuger.is-click span {
+    transform: rotate(225deg);
+}
+.hambuger.is-click {
+    background: rgb(62, 112, 219, .5);
+    box-shadow: 0px 0px 5px 3px lightblue;
+    filter: brightness(110%);
+}

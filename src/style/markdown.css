@@ -1,0 +1,119 @@
+/*markdown style in blog*/
+blockquote {
+    position: relative;
+    font-family: 'Times New Roman', Times, serif;
+    width: 98%;
+    margin: auto;
+    margin-bottom: 20px;
+
+    font-size: 18px;
+    font-weight: 590;
+
+    box-shadow: 2px 0px 3px 1px rgba(100, 100, 100, .13);
+
+    background: rgba(255, 255, 255, .2);
+    border: .5px solid none;
+    border-left: none;
+    padding: 1px;
+    padding-left: 10px;
+}
+blockquote::before {
+    content: "";
+    position: absolute;
+    top: -.5px;
+    left: 0px;
+    height: 102%;
+    width: 5px;
+    background: #acf;
+}
+blockquote p{
+    position: relative;
+    left: 10px;
+    padding-right: 10px;
+    margin: 12px;
+    letter-spacing: .8px;
+}
+img {
+    display: block;
+    position: relative;
+    margin: auto;
+    box-shadow: 0px 0px 4px 2px rgba(100, 100, 100, .33);
+    transition: all .4s;
+}
+a:not(.githubIcon):not(.routerLink) {
+    text-decoration: none;
+    text-align: center;
+    color: darkslateblue;
+    display: inline;
+    position: relative;
+    margin-left: 4px;
+    margin-right: 4px;
+    font-size: 18px;
+    transition: all .5s;
+}
+
+a:not(.githubIcon):not(.routerLink)::before {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 3px;
+    right: 0%;
+    top: 100%;
+    background: #fac;
+    transition: width .4s;
+    visibility: visible;
+}
+
+a:not(.githubIcon):not(.routerLink):hover::before {
+    visibility: hidden;
+    width: 100%;
+}
+a:not(.githubIcon):not(.routerLink)::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 3px;
+    left: 0px;
+    top: 100%;
+    visibility: hidden;
+    background: #fac;
+    transition: width .4s;
+}
+
+a:not(.githubIcon):not(.routerLink):hover::after {
+    visibility: visible;
+    width: 100%;
+}
+
+a:not(.githubIcon):not(.routerLink):hover {
+    color: #fac;
+}
+code {
+    padding: 2px;
+    background: rgba(255, 67, 12, .4);
+    color: black;
+    font-size: 16px;
+    font-family:  serif;
+    margin-left: 4px;
+    margin-right: 4px;
+    border-radius: 3px;
+}
+ul, ol {
+    background: rgba(255, 255, 255, .4);
+    font-size: 20px;
+    font-weight: 600;
+    padding-bottom: 8px;
+    min-width: 50%;
+    box-shadow: 0px 0px 3px 1px rgba(100, 100, 100, .13);
+}
+ul li, ol li {
+    margin-bottom: 3px;
+    padding-top: 10px;
+    transition: all .4s;
+}
+ul li:hover, ol li:hover {
+    cursor: default;
+}
+p {
+    font-family: '宋体';
+}

@@ -1,0 +1,12 @@
+::selection {
+    background: rgba(224, 198, 224, 0.5);
+    color: #fff;
+}
+::-moz-selection {
+    background: lightgreen;
+    color: #fff;
+}
+#nav {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+}
