@@ -45,7 +45,9 @@ let srv = http.createServer((req, res) => {
     let _url = new URL(req.url, `${protocol}://${host}:${port}`);
     let file = '';
     let connection = mysql.createConnection(DBConfig);
-
+    connection.on('error', e => {
+        connection.query('use blog', e => {console.log('naive')} );
+    })
     if (_url.pathname === '/') {                                //首页信息
         res.setHeader('Content-Type', 'text/html');
         res.statusCode = 200;
