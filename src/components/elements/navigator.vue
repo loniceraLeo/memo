@@ -88,7 +88,7 @@ export default {
     i span {
         position: relative;
         left: 10px;
-        font-family: 楷体;
+        font-family: '楷体';
         font-weight: bolder;
     }
 </style>

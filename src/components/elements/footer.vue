@@ -2,7 +2,7 @@
   <div id="footer">
       <div class="wrapper">
             <span class="info" onselectstart="return false;">© 2020-present Lonicera</span><br/>
-            <span class="themeinfo" onselectstart="return false;">Theme | spark</span>
+            <span class="themeinfo" onselectstart="return false;">Theme | memo</span>
       </div>
   </div>
 </template>

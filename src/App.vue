@@ -152,13 +152,6 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
-  #nav>a {
-    text-decoration: none;
-    transition: color .6s;
-    font-family: 楷体;
-    font-size: 24px;
-  }
-
   #jumptop {
     position: fixed;
     right: 220px;

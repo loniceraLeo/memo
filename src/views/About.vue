@@ -132,6 +132,8 @@ export default {
     min-width: 10%;
     background: rgba(245, 239, 239, 0.88);
     border: 1px solid #ccc;
+    border-radius: 20px;
+    overflow: hidden;
   }
   h1 {
       text-align: center;
