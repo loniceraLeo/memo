@@ -48,11 +48,11 @@ let srv = http.createServer((req, res) => {
     connection.on('error', e => {
         connection.query('use blog', e => {console.log('naive')} );
     })
-    if (_url.pathname === '/') {                                //首页信息
+    if (_url.pathname === '/') {                                //<首页>信息
         res.setHeader('Content-Type', 'text/html');
         res.statusCode = 200;
         res.end(index);
-    } else if (_url.pathname.match(/aboutInfo/gi)) {             //关于页面信息
+    } else if (_url.pathname.match(/aboutInfo/gi)) {             //<关于>页面信息
         //let connection = mysql.createConnection(DBConfig);
         connection.connect(err => {if (err) throw err});
         connection.query('select * from about', (err, results) => {
@@ -62,7 +62,7 @@ let srv = http.createServer((req, res) => {
             res.end(JSON.stringify(results));
             connection.end();
         });        
-    } else if (_url.pathname.match(/postinfo/g)) {              //首页博文信息
+    } else if (_url.pathname.match(/postinfo/g)) {              //首页<博文>信息
         let initindex = parseInt(_url.pathname.split(/\//g)[2]);
         connection.connect(err => {if (err) throw err});
         connection.query(`select * from post where id<=? order by id desc limit 5`, [initindex], (err, results) => {
@@ -72,7 +72,7 @@ let srv = http.createServer((req, res) => {
             res.end(JSON.stringify(results));
             connection.end();
         });
-    } else if (_url.pathname.match(/postid\//gi)) {                 //博文信息
+    } else if (_url.pathname.match(/postid\//gi)) {                 //<博文>信息
         const id = parseInt(_url.pathname.split('\/')[ 2 ]);
         connection.connect((err) => {     //if not found, return 404
             if (err) void 0;
@@ -114,14 +114,12 @@ let srv = http.createServer((req, res) => {
             res.end(index);
         }
     } else if (_url.pathname.match(/archiveinfo/gi)) {
-        //let connection = mysql.createConnection(DBConfig);
         connection.query('select id,title,posttime from post', (e, results) => {
             res.statusCode = 200;
             res.setHeader('Content-Type', 'application/json');
             res.end(JSON.stringify(results));
         });
     } else if (_url.pathname.match(/noteinfo/gi)) {
-        //let connection = mysql.createConnection(DBConfig);
         connection.query('select title,content,posttime from note', (e, results) => {
             res.statusCode = 200;
             res.setHeader('Content-Type', 'application/json');

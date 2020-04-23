@@ -25,7 +25,8 @@
                 <hr>
                 <i class="fa fa-calendar"></i>
                 <p>
-                  <!--{{item.posttime.year}}-{{item.posttime.month}}-{{item.posttime.day}}-->2020-3-30</p>
+                  <!--{{item.posttime.year}}-{{item.posttime.month}}-{{item.posttime.day}}-->2020-3-30
+                </p>
               </div>
             </div>
           </div>
@@ -70,7 +71,7 @@
             year: 2020,
             month: 3,
             day: 29,
-            content: '# 嘿嘿嘿\n>Vue\n二元函数可以推广到更高阶的函数,本质上就是两个因变量。本文将提示开发博客主题的几个要点边界上的点必然不是内点。区域的充要条件是联通，包含边界的是闭区域，不包含的是开区域.'
+            content: '# 嘿嘿嘿\n>Vue\n二元函数可以推'
           },
           {
             title: 'Hello world',
@@ -126,7 +127,7 @@
           return item != ''
         })[2];
         content = content ? content : '这个世界的真理,到底是什么呢';
-        content = content.slice(0, 56) + (content.length > 56 ? '...' : '');
+        content = content.slice(0, 60) + (content.length > 60 ? '...' : '');
         return content;
       },
       jumptonextpage() {

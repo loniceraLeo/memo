@@ -7,7 +7,6 @@ blockquote {
     margin-bottom: 20px;
 
     font-size: 18px;
-    font-weight: 590;
 
     box-shadow: 2px 0px 3px 1px rgba(100, 100, 100, .13);
 
@@ -90,17 +89,16 @@ a:not(.githubIcon):not(.routerLink):hover {
 }
 code {
     padding: 2px;
-    background: rgba(255, 67, 12, .4);
+    background: rgba(160, 160, 160, .3);
     color: black;
     font-size: 16px;
     font-family:  serif;
     margin-left: 4px;
     margin-right: 4px;
-    border-radius: 3px;
 }
 ul, ol {
     background: rgba(255, 255, 255, .4);
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 600;
     padding-bottom: 8px;
     min-width: 50%;
@@ -113,7 +111,4 @@ ul li, ol li {
 }
 ul li:hover, ol li:hover {
     cursor: default;
-}
-p {
-    font-family: '宋体';
 }

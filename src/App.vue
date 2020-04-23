@@ -145,7 +145,9 @@
     min-height: 650px;
     margin-bottom: 30px;
   }
-
+  p {
+    font-family: '宋体';
+  }
   #app {
     font-family: Avenir, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;

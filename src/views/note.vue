@@ -1,31 +1,34 @@
 <template>
     <div class="note">
-        <div id="wraper" v-if="notes">
-            <div v-for="(item, index) in notes" :key="index" :class="['paper', 'paper' + index]" >
-                <div class="uptime" :style="{background: `rgba(${random255()}, ${random255()}, ${random255()}, .95)`}">
-                    <div :class="['light']" id="light0"
-                        :style="{background: `rgba(${random255Low()}, ${random255Low()}, ${random255Low()}, .44)`}"
-                        @click="drag">
-                        <i :class="['fa', 'fa-caret-down', 'caret' + index]"></i>
+        <jptb>
+            <div id="wraper" v-if="notes">
+                <div v-for="(item, index) in notes" :key="index" :class="['paper', 'paper' + index]">
+                    <div class="uptime"
+                        :style="{background: `rgba(${random255()}, ${random255()}, ${random255()}, .95)`}">
+                        <div :class="['light']" id="light0"
+                            :style="{background: `rgba(${random255Low()}, ${random255Low()}, ${random255Low()}, .44)`}"
+                            @click="drag">
+                            <i :class="['fa', 'fa-caret-down', 'caret' + index]"></i>
+                        </div>
+                        <div :class="['light']" id="light1"
+                            :style="{background: `rgba(${random255Low()}, ${random255Low()}, ${random255Low()}, .44)`}"
+                            @click="alignCenter">
+                            <i :class="['fa', 'fa-align-center', 'align' + index]"></i>
+                        </div>
+                        <i :class="['fa', 'fa-clock-o']"></i>
+                        <span>{{item.posttime.year}}年{{item.posttime.month}}月{{item.posttime.day}}日</span>
                     </div>
-                    <div :class="['light']" id="light1"
-                        :style="{background: `rgba(${random255Low()}, ${random255Low()}, ${random255Low()}, .44)`}"
-                        @click="alignCenter">
-                        <i :class="['fa', 'fa-align-center', 'align' + index]"></i>
+                    <div :class="['content', 'content' + index, 'center']">
+                        <div :class="['title', 'title' + index]">
+                            <span>{{item.title}}</span>
+                        </div>
+                        <p v-html="marked(item.content)"></p>
                     </div>
-                    <i :class="['fa', 'fa-clock-o']"></i>
-                    <span>{{item.posttime.year}}年{{item.posttime.month}}月{{item.posttime.day}}日</span>
-                </div>
-                <div :class="['content', 'content' + index, 'center']">
-                    <div :class="['title', 'title' + index]">
-                        <span>{{item.title}}</span>
-                    </div>
-                    <p v-html="marked(item.content)"></p>
                 </div>
             </div>
-        </div>
-        <div v-else id="loading">
-            <img src="http://192.168.2.104:8080/user-assets/loading-svg/loading-balls.svg" alt="Loading icon">
+        </jptb>
+        <div v-if="loading" id="loading">
+            <img src="@/assets/loading-svg/loading-balls.svg" alt="Loading icon">
         </div>
     </div>
 </template>
@@ -37,7 +40,8 @@
     export default {
         data: function () {
             return {
-                notes: [{
+                notes: '',
+                /*notes: [{
                     title: '「千之刃涛,桃花染之皇姬」fd歌词',
                     content: '翩翩起舞的桃花雪 此世间乃愉悦的桃幻浪漫翩翩起舞的桃花雪 此世间乃愉悦的桃幻浪漫,真是太好了',
                     posttime: {
@@ -45,7 +49,8 @@
                         month: 4,
                         day: 7
                     }
-                }],
+                }],*/
+                loading: true
             }
         },
         created() {
@@ -88,6 +93,7 @@
                 xhr.setRequestHeader('content-Type', 'text/plain');
                 xhr.send();
                 xhr.onload = () => {
+                    this.loading = false;
                     this.notes = JSON.parse(xhr.responseText);
                     this.notes.forEach(item => {
                         item.posttime = JSON.parse(item.posttime);

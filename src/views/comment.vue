@@ -1,42 +1,44 @@
 <template>
     <div class="comment">
-        <div v-if="comments">
-            <div class="formwrapper">
-                <h1>Comment</h1>
-                <form id="myform">
-                    <span class="nickwrapper">昵称: <input type="text" :class="['nickname', 'inf']"></span>
-                    <span class="emailwrapper">邮箱: <input type="text" :class="['email', 'inf']"></span>
-                    <span class="websitewrapper">网站(选): <input type="text" :class="['website', 'inf']"></span>
-                    <div class="wrapper">
-                        <textarea placeholder="支持markdown语法,暂不支持</>和表情,但是您可以使用颜文字 ;)" class="inputer"></textarea>
-                    </div>
-                    <button class="submit" @click.prevent="submit">评论</button>
-                </form>
-                <p class="info"><i :class="['fa', 'fa-exclamation-circle']"></i> 您的信息完全保密, 推荐使用qq邮箱以获取真实qq头像,
-                    否则将使用默认妹红头像!
-                    XD</p>
-            </div>
-            <div class="commentswrapper" v-if="comments">
-                <div v-for="(item, index) in comments" :class="['box', 'box' + index]" :key="index">
-                    <div :class="['avatarwrapper']"><img :src='getAvatar(item)'></div>
-                    <div :class="['nicknamewrapper']">
-                        <a v-if="item.website" @click="jumpToWebsite(item.website)">{{item.nickname}}</a>
-                        <span v-else>{{item.nickname}}</span>
-                    </div>
-                    <div :class="['contentwrapper']">
-                        <div :class="['time']">
-                            <span>发表于: <i :class="['fa', 'fa-clock-o']"></i>
-                                {{item.time.year}}年{{item.time.month}}月{{item.time.day}}日</span>
-                            <button id="reply" @click="reply(item)">回复</button>
+        <jptb>
+            <div v-if="comments">
+                <div class="formwrapper">
+                    <h1>Comment</h1>
+                    <form id="myform">
+                        <span class="nickwrapper">昵称: <input type="text" :class="['nickname', 'inf']"></span>
+                        <span class="emailwrapper">邮箱: <input type="text" :class="['email', 'inf']"></span>
+                        <span class="websitewrapper">网站(选): <input type="text" :class="['website', 'inf']"></span>
+                        <div class="wrapper">
+                            <textarea placeholder="支持markdown语法,暂不支持</>和表情,但是您可以使用颜文字 ;)" class="inputer"></textarea>
                         </div>
-                        <hr />
-                        <p :style="{marginTop: '-10px'}" v-html="marked(item.content)"></p>
+                        <button class="submit" @click.prevent="submit">评论</button>
+                    </form>
+                    <p class="info"><i :class="['fa', 'fa-exclamation-circle']"></i> 您的信息完全保密, 推荐使用qq邮箱以获取真实qq头像,
+                        否则将使用默认妹红头像!
+                        XD</p>
+                </div>
+                <div class="commentswrapper" v-if="comments">
+                    <div v-for="(item, index) in comments" :class="['box', 'box' + index]" :key="index">
+                        <div :class="['avatarwrapper']"><img :src='getAvatar(item)'></div>
+                        <div :class="['nicknamewrapper']">
+                            <a v-if="item.website" @click="jumpToWebsite(item.website)">{{item.nickname}}</a>
+                            <span v-else>{{item.nickname}}</span>
+                        </div>
+                        <div :class="['contentwrapper']">
+                            <div :class="['time']">
+                                <span>发表于: <i :class="['fa', 'fa-clock-o']"></i>
+                                    {{item.time.year}}年{{item.time.month}}月{{item.time.day}}日</span>
+                                <button id="reply" @click="reply(item)">回复</button>
+                            </div>
+                            <hr />
+                            <p :style="{marginTop: '-10px'}" v-html="marked(item.content)"></p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div v-if="loading" id="loading"><img src="@/assets/loading-svg/loading-balls.svg"
-          alt="Loading icon"></div><!-- loading image-->
+        </jptb>
+        <div v-if="loading" id="loading"><img src="@/assets/loading-svg/loading-balls.svg" alt="Loading icon"></div>
+        <!-- loading image-->
     </div>
 </template>
 
@@ -45,7 +47,7 @@
     export default {
         data: function () {
             return {
-                comments: [{
+                /*comments: [{
                     nickname: 'lonicera',
                     email: '2192811348@qq.com',
                     website: 'baidu.com',
@@ -65,7 +67,7 @@
                         month: 4,
                         day: 10
                     }
-                }],
+                }],*/
                 loading: true,
                 replyee: '',
             }
@@ -118,7 +120,7 @@
             getAvatar(el) {
                 if (el.email.match(/@qq\.com/gi)) {
                     let qid = el.email.split('@')[0];
-                    return `http://q1.qlogo.cn/g?b=qq&nk=${qid}&s=640`
+                    return `https://q1.qlogo.cn/g?b=qq&nk=${qid}&s=640`
                 } else {
                     return '/images/defaultHead.jpg'
                 }
