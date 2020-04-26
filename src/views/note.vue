@@ -55,6 +55,7 @@
         },
         created() {
             this.fetchData();
+            document.title = 'note';
         },
         methods: {
             marked,
