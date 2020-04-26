@@ -25,7 +25,7 @@
                 <hr>
                 <i class="fa fa-calendar"></i>
                 <p>
-                  <!--{{item.posttime.year}}-{{item.posttime.month}}-{{item.posttime.day}}-->2020-3-30
+                  {{item.posttime.year}}-{{item.posttime.month}}-{{item.posttime.day}}
                 </p>
               </div>
             </div>
