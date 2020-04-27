@@ -55,7 +55,7 @@
         },
         created() {
             this.fetchData();
-            document.title = 'note';
+            document.title = '摘记';
         },
         methods: {
             marked,

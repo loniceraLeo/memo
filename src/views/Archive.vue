@@ -29,7 +29,7 @@
     export default {
         created() {
             this.fetchData();
-            document.title = 'Archive'
+            document.title = '归档'
         },
         data: function () {
             return {

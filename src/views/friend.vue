@@ -25,6 +25,7 @@
     export default {
         created() {
             this.fetchData();
+            document.title = '友链'
         },
         data: function () {
             return {

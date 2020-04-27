@@ -74,7 +74,7 @@
         },
         created() {
             this.fetchData();
-            document.title = '留言区'
+            document.title = '留言'
         },
         methods: {
             marked,

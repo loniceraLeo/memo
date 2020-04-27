@@ -81,6 +81,7 @@
     components: {},
     created() {
       this.fetchData();
+      document.title = '关于';
     }
   }
 </script>
