@@ -14,7 +14,7 @@
     "core-js": "^3.6.4",
     "highlight.js": "^9.18.1",
     "loading-svg": "^1.0.0",
-    "marked": "^0.8.2",
+    "marked": "^4.0.10",
     "mysql": "^2.18.1",
     "nodemailer": "^6.4.6",
     "velocity-animate": "^2.0.5",
